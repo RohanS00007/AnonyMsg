@@ -36,7 +36,7 @@ export default function DashBoardPage() {
   }, [setMessages]);
 
   return (
-    <div className="border-debug flex min-h-screen w-full flex-col items-center">
+    <div className="flex min-h-screen w-full flex-col items-center">
       <UserDashboard />
       <AcceptingMsgToggleBtn />
       <div className="grid grid-cols-1 gap-y-0">
