@@ -6,8 +6,6 @@ import TanstackQueryProvider from "@/components/custom/tanstack-query-provider";
 import { Toaster } from "sonner";
 import AuthQueryProvider from "@/components/custom/auth-query-provider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-// import Image from "./opengraph-image";
-import Image from "@/public/webhome.png";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -41,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Anonymous Message",
     images: [
       {
-        url: `${Image}`,
+        url: "https://postimg.cc/mcgCf27Y",
         width: 1200,
         height: 630,
         alt: "Anonymous Message - True Feedback",
@@ -55,7 +53,7 @@ export const metadata: Metadata = {
     title: "Anonymous Message - True Feedback",
     description:
       "True Feedback - Where your identity remains a secret. Dive into the world of Anonymous Feedback.",
-    images: [`${Image}`],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,

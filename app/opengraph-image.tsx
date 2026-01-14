@@ -8,7 +8,7 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function Image() {
+export default async function Image() {
   return new ImageResponse(
     <div
       style={{
