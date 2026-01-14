@@ -6,6 +6,7 @@ import TanstackQueryProvider from "@/components/custom/tanstack-query-provider";
 import { Toaster } from "sonner";
 import AuthQueryProvider from "@/components/custom/auth-query-provider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Image from "./opengraph-image";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "Anonymous Message",
     images: [
       {
-        url: "https://anon-msg-sigma.vercel.app/opengraph-image",
+        url: `my-app/public/webhome.png`,
         width: 1200,
         height: 630,
         alt: "Anonymous Message - True Feedback",
