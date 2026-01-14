@@ -18,10 +18,10 @@ export default function UserWelcomeTquery() {
   if (authInfo?.data) {
     return (
       <div className="ml-5 flex w-[55%] items-center justify-between">
-        <div className="mr-4 flex items-center justify-center">
+        <div className="mr-4 flex flex-col items-center justify-center text-sm">
           Welcome
           <strong
-            className={`ml-3 tracking-widest ${authInfo?.data?.user.role === "admin" ? "text-yellow-300 [font-variant:small-caps]" : "text-white"}`}
+            className={`text-md ml-3 tracking-widest ${authInfo?.data?.user.role === "admin" ? "text-yellow-300 [font-variant:small-caps]" : "text-white"}`}
           >
             {authInfo?.data?.user.name}
           </strong>

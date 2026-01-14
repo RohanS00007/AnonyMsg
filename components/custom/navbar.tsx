@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <nav className="bg-gray-900 p-4 text-white shadow-md md:p-6">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="#" className="mb-4 text-xl font-bold md:mb-0">
+        <Link href="#" className="mb-4 text-sm font-bold sm:text-xl md:mb-0">
           True Feedback
         </Link>
         {/* <UserWelcome /> */}
