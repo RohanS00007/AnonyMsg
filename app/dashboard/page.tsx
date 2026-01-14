@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import type { Message } from "@/models/UserMsg";
 import MessageCard from "@/components/custom/message-card";
 import AcceptingMsgToggleBtn from "@/components/custom/accepting-msg-toggle-btn";
+import UserTile from "@/components/custom/user-tile";
 
 export default function DashBoardPage() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -38,16 +39,22 @@ export default function DashBoardPage() {
     <div className="mb-10 flex min-h-screen w-full flex-col items-center">
       <UserDashboard />
       <AcceptingMsgToggleBtn />
-      <div className="grid grid-cols-1 gap-y-0">
-        <div className="mx-auto grid w-[80%] grid-cols-1 gap-x-2 gap-y-3 md:grid-cols-2 lg:grid-cols-3">
-          {messages.map((message) => (
-            <MessageCard
-              key={message._id.toString()}
-              cardId={message._id.toString()}
-              message={message}
-              onMsgDelete={() => console.log("delete")}
-            />
-          ))}
+      <UserTile />
+      <div className="mt-5 flex flex-col items-center justify-center">
+        <div className="m-2 text-sm text-neutral-600">
+          Check all messages in Inbox
+        </div>
+        <div className="grid grid-cols-1 gap-y-0">
+          <div className="mx-auto grid w-[80%] grid-cols-1 gap-x-2 gap-y-3 md:grid-cols-2 lg:grid-cols-3">
+            {messages.map((message) => (
+              <MessageCard
+                key={message._id.toString()}
+                cardId={message._id.toString()}
+                message={message}
+                onMsgDelete={() => console.log("delete")}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
