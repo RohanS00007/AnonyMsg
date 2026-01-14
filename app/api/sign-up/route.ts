@@ -13,11 +13,11 @@ export async function POST() {
         })
 
         if(!data){
-            console.error(`session data doesn't exist`)
+            // console.error(`session data doesn't exist`)
         }
 
         const userId = data?.user.id;
-        console.log(`UserID: ${userId}`)
+        // console.log(`UserID: ${userId}`)
 
         if(!userId){
             return Response.json({
@@ -28,7 +28,7 @@ export async function POST() {
             });
         }
 
-        const userMessage = await UserMessageModel.create({
+         await UserMessageModel.create({
             userId: userId,
             isAcceptingMessages: true,
             messages: []
@@ -40,7 +40,7 @@ export async function POST() {
         })
 
     } catch (error) {
-        console.error("Error occured while initiating Message Model");
+        console.error("Error occured while initiating Message Model", error);
         return(Response.json({
             success: false,
             message: "Error updating while initiating UserMessage model"
