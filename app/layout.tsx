@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-// import AuthProvider from "@/components/custom/auth-provider";
 import TanstackQueryProvider from "@/components/custom/tanstack-query-provider";
 import { Toaster } from "sonner";
 import AuthQueryProvider from "@/components/custom/auth-query-provider";
@@ -31,34 +30,6 @@ export const metadata: Metadata = {
     "anonymous messaging",
   ],
   authors: [{ name: "Anonymous Message" }],
-  openGraph: {
-    title: "Anonymous Message - True Feedback",
-    description:
-      "True Feedback - Where your identity remains a secret. Dive into the world of Anonymous Feedback.",
-    url: "https://anon-msg-sigma.vercel.app",
-    siteName: "Anonymous Message",
-    images: [
-      {
-        url: "https://postimg.cc/mcgCf27Y",
-        width: 1200,
-        height: 630,
-        alt: "Anonymous Message - True Feedback",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Anonymous Message - True Feedback",
-    description:
-      "True Feedback - Where your identity remains a secret. Dive into the world of Anonymous Feedback.",
-    images: ["/opengraph-image"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
 export default function RootLayout({
