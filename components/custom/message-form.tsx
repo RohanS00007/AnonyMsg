@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -25,6 +25,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import axios, { AxiosError } from "axios";
 import { cn } from "@/lib/utils";
+import { IconArrowNarrowRight } from "@tabler/icons-react";
 
 const formSchema = z.object({
   content: z
@@ -40,6 +41,7 @@ export default function MessageForm({
   className: string;
   userName: string;
 }) {
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -49,6 +51,7 @@ export default function MessageForm({
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     try {
+      setIsDisabled(true);
       const response = await axios.post("/api/send-message", {
         content: data.content,
         userName,
@@ -61,6 +64,7 @@ export default function MessageForm({
           description: response.data.message,
         });
       }
+      setIsDisabled(false);
     } catch (error) {
       console.log(error);
 
@@ -72,7 +76,7 @@ export default function MessageForm({
             <pre>
               <p>{axiosError.message}</p>
               <br />
-              <p>Maybe user is not accepting messages.</p>
+              <p>Maybe user doesn&apos;t exist or is not accepting messages.</p>
             </pre>
           ),
         });
@@ -123,11 +127,15 @@ export default function MessageForm({
             Reset
           </Button>
           <Button
+            disabled={isDisabled}
             type="submit"
             form="form-rhf-textarea"
-            className={"cursor-pointer hover:scale-102"}
+            className={
+              "group cursor-pointer hover:scale-102 disabled:bg-neutral-600 disabled:opacity-30 disabled:transition-colors disabled:duration-200"
+            }
           >
-            Save
+            Send
+            <IconArrowNarrowRight className="transition-all duration-300 group-hover:translate-x-1" />
           </Button>
         </Field>
       </CardFooter>
