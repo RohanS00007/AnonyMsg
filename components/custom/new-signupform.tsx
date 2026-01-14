@@ -130,7 +130,7 @@ export default function SignUpForm() {
               onClick: () => console.log("Undo"),
             },
           });
-          axios.post("/api/sign-up");
+          // axios.post("/api/sign-up");
           router.push("/dashboard");
         },
         onError: (error) => {
