@@ -36,10 +36,9 @@ export default function MessageCard({
   cardId,
 }: Props) {
   return (
-    <Card className="border-debug w-1/3" key={cardId}>
+    <Card className="border-debug flex h-auto w-full flex-col" key={cardId}>
       <CardHeader>
         <CardTitle></CardTitle>
-        <CardDescription></CardDescription>
         <CardAction>
           <AlertDialog>
             <AlertDialogTrigger>
@@ -65,8 +64,8 @@ export default function MessageCard({
           </AlertDialog>
         </CardAction>
       </CardHeader>
-      <CardContent>{message}</CardContent>
-      {/* <CardFooter></CardFooter> */}
+      <CardContent className="flex-1">{message}</CardContent>
+      <CardFooter>Received at: </CardFooter>
     </Card>
   );
 }

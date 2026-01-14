@@ -54,6 +54,8 @@ export default function MessageForm({
         userName,
       });
 
+      form.reset();
+
       if (response.data) {
         toast("Api Message", {
           description: response.data.message,

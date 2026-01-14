@@ -70,6 +70,7 @@ export default function AcceptingMsgToggleBtn() {
 
   return (
     <div className="mb-4">
+      <span>Accepting Messages: </span>
       <Switch
         checked={acceptMessages ?? true}
         onCheckedChange={handleSwitchChange}
