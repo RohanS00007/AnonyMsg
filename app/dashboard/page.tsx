@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import type { Message } from "@/models/UserMsg";
 import MessageCard from "@/components/custom/message-card";
 import AcceptingMsgToggleBtn from "@/components/custom/accepting-msg-toggle-btn";
-import Navbar from "@/components/custom/navbar";
 
 export default function DashBoardPage() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -36,7 +35,7 @@ export default function DashBoardPage() {
   }, [setMessages]);
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center">
+    <div className="mb-10 flex min-h-screen w-full flex-col items-center">
       <UserDashboard />
       <AcceptingMsgToggleBtn />
       <div className="grid grid-cols-1 gap-y-0">
@@ -45,7 +44,7 @@ export default function DashBoardPage() {
             <MessageCard
               key={message._id.toString()}
               cardId={message._id.toString()}
-              message={message.content}
+              message={message}
               onMsgDelete={() => console.log("delete")}
             />
           ))}

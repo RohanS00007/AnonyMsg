@@ -100,7 +100,7 @@ export default function MessageForm({
                     id="form-rhf-textarea-content"
                     aria-invalid={fieldState.invalid}
                     placeholder="Start typing your message here..."
-                    className="min-h-30"
+                    className="min-h-40"
                   />
                   <FieldDescription></FieldDescription>
                   {fieldState.invalid && (
@@ -114,10 +114,19 @@ export default function MessageForm({
       </CardContent>
       <CardFooter>
         <Field orientation="horizontal">
-          <Button type="button" variant="outline" onClick={() => form.reset()}>
+          <Button
+            className={"cursor-pointer hover:scale-102"}
+            type="button"
+            variant="outline"
+            onClick={() => form.reset()}
+          >
             Reset
           </Button>
-          <Button type="submit" form="form-rhf-textarea">
+          <Button
+            type="submit"
+            form="form-rhf-textarea"
+            className={"cursor-pointer hover:scale-102"}
+          >
             Save
           </Button>
         </Field>

@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
+import dayjs from "dayjs";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -20,10 +20,13 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { CrosshairIcon, XIcon } from "lucide-react";
+import { XIcon } from "lucide-react";
+// import { CrosshairIcon, XIcon } from "lucide-react";
+
+import type { Message } from "@/models/UserMsg";
 
 interface Props {
-  message: string;
+  message: Message;
   onMsgDelete: () => void;
   key: string;
   cardId: string;
@@ -36,7 +39,7 @@ export default function MessageCard({
   cardId,
 }: Props) {
   return (
-    <Card className="border-debug flex h-auto w-full flex-col" key={cardId}>
+    <Card className="flex h-auto w-full flex-col" key={cardId + key}>
       <CardHeader>
         <CardTitle></CardTitle>
         <CardAction>
@@ -64,8 +67,15 @@ export default function MessageCard({
           </AlertDialog>
         </CardAction>
       </CardHeader>
-      <CardContent className="flex-1">{message}</CardContent>
-      <CardFooter>Received at: </CardFooter>
+      <CardContent className="flex-1 font-semibold tracking-wide">
+        {message?.content}
+      </CardContent>
+      <CardFooter>
+        <span className="mr-2 text-sm text-neutral-500">Received at: </span>
+        <span className="text-sm font-semibold text-neutral-600">
+          {dayjs(message?.createdAt).format("MMM D, YYYY h:mm A")}
+        </span>
+      </CardFooter>
     </Card>
   );
 }
